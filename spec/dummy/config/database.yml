@@ -1,0 +1,45 @@
+default: &default
+  adapter: mysql2
+  database: freepbx_development
+  encoding: utf8
+  host: localhost
+  # password: rails_mcp
+  pool: 5
+  username: root
+
+  # adapter: mysql2
+  # database: <%= ENV['DATABASE_NAME'] %>
+  # host: <%= ENV['DATABASE_HOST'] %>
+  # encoding: utf8
+  # password: <%= ENV['DATABASE_PASSWORD'] %>
+  # pool: 5
+  # username: <%= ENV['DATABASE_USERNAME'] %>
+
+development:
+  <<: *default
+
+test:
+  <<: *default
+  database: freepbx_test
+
+production:
+  <<: *default
+  database: freepbx_production
+
+asterisk_default: &asterisk_default
+  adapter: mysql2
+  host: localhost
+  username: root
+  # password: rails_mcp
+
+asterisk_development:
+  <<: *asterisk_default
+  database: asterisk_development
+
+asterisk_test:
+  <<: *asterisk_default
+  database: asterisk_test
+
+asterisk_production:
+  <<: *asterisk_default
+  database: asterisk
